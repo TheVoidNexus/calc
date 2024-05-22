@@ -5,11 +5,36 @@ body {
 }
 
 .result {
-    font-size: 50px;
+    font-size: 35px;
 }
 
 button {
-    margin-top: 15%;
+    margin-top: 2%;
+    font-size: 20px;
+    border-color: white;
+    border-style: solid;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+}
+
+input {
+    margin-top: 13%;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+input::placeholder {
+    color: lightgray;
+}
+
+.calculate {
+    margin-top: 3%;
     font-size: 20px;
     border-color: white;
     border-style: solid;

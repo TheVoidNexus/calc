@@ -1,54 +1,34 @@
 function calculate() {
-    let type;
+    const expression = document.getElementById("input").value;
+    const regex = /^[\d\+\-\*\/\^\(\)\s\√]+$/;
 
-    const n1 = parseFloat(prompt("Enter the first number"));
-
-    if(isNaN(n1)) {
-        alert("Invalid input. Please enter a number.");
+    if (!regex.test(expression)) {
+        document.getElementById("result").innerHTML = `Error: Invalid expression`;
+        document.getElementById("input").value = "";
         return;
     }
 
-    const n2 = parseFloat(prompt("Enter the second number"));
-
-    if (isNaN(n2)) {
-        alert("Invalid input. Please enter a number.");
-        return;
-    }
-
-    const operator = prompt("Enter the operator (+,-,*,/)");
-
-    if (operator === "+" || operator === "-" || operator === "*" || operator === "/") {
-        let result;
-        switch (operator) {
-            case "+":
-                result = n1 + n2;
-                break;
-            case "-":
-                result = n1 - n2;
-                break;
-            case "*":
-                result = n1 * n2;
-                break;
-            case "/":
-                if (n2 === 0) {
-                    alert("Cannot divide by zero.");
-                    type = "error";
-                }
-                result = n1 / n2;
-                break;
-        }
-
-        const roundedResult = Math.round(result * 1000) / 1000;
-
-        const output = document.getElementById("result");
-
-        if(type != "error") {
-            output.innerHTML = `${n1} ${operator} ${n2} = ${roundedResult}`;
-        } else {
-            output.innerHTML = `${n1} ${operator} ${n2} = Math Error`;;
-        }
-
-    } else {
-        alert("Invalid operator");
+    try {
+        const result = evaluateExpression(expression);
+        document.getElementById("result").innerHTML = `${expression} = ${result}`;
+        document.getElementById("input").value = "";
+    } catch (error) {
+        document.getElementById("result").innerHTML = `Error (${expression}): ${error.message}`;
     }
 }
+
+function evaluateExpression(expression) {
+    const result = eval(expression);
+    return result;
+}
+
+function addToInput(value) {
+    document.getElementById("input").value += value;
+    document.getElementById("input").focus();
+}
+
+document.getElementById("input").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        calculate();
+    }
+});
