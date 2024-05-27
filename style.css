@@ -5,7 +5,7 @@ body {
 }
 
 .result {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 button {
@@ -17,6 +17,10 @@ button {
     border-radius: 8px;
     background-color: transparent;
     color: white;
+}
+
+button:hover {
+    background-color: rgb(36, 36, 36);
 }
 
 input {
@@ -33,13 +37,35 @@ input::placeholder {
     color: lightgray;
 }
 
+input:hover {
+  background-color: rgb(35, 35, 35);
+}
+
 .calculate {
     margin-top: 3%;
     font-size: 20px;
-    border-color: white;
+    border-color: rgb(190, 190, 190);
     border-style: solid;
     padding: 10px;
     border-radius: 8px;
     background-color: transparent;
-    color: white;
-}
+    background: linear-gradient(to right, lime, yellow, lime);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShiftLeft 5s infinite linear;
+  }
+
+  .calculate:hover {
+    box-shadow: gainsboro 1px 1.5px;
+  }
+
+  @keyframes gradientShiftLeft {
+    0% {
+      background-position: 200% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
