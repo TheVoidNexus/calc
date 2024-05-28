@@ -3,7 +3,7 @@ function calculate() {
     const regex = /^[\d\+\-\*\/\.\\^\(\)\s\√]+$/;
  
     if(expression == "") {
-        document.getElementById("result").innerHTML = "Expression empty.";
+        document.getElementById("result").innerHTML = "Empty expression.";
         return;
     }
 
@@ -44,3 +44,18 @@ document.getElementById("input").addEventListener("keydown", function (event) {
         calculate();
     }
 });
+
+const database = document.getElementById('database');
+const voidclicker = document.getElementById('voidclicker');
+
+database.addEventListener("click", function () {
+    window.location.href = "https://thevoidnexus.github.io/database/";
+});
+
+voidclicker.addEventListener("click", function () {
+    window.location.href = "https://thevoidnexus.github.io/";
+});
+
+function login() {
+    alert("In development.");
+}
